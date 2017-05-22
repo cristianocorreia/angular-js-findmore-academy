@@ -1,0 +1,189 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/animate.css/animate.min.css";
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  transform: $transform;
+}
+
+@mixin transition($type, $time) {
+  -webkit-transition: $type $time ease-in-out;
+  -moz-transition: $type $time ease-in-out;
+  -ms-transition: $type $time ease-in-out;
+  transition: $type $time ease-in-out;
+}
+
+@mixin animation($name, $time, $type) {
+  -webkit-animation:$name $time $type;
+  -moz-animation:$name $time $type;
+  -ms-animation:$name $time $type;
+  animation:$name $time $type;
+}
+
+@mixin clearfix() {
+  display: inline-block;
+
+    &:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+}
+
+@-webkit-keyframes moveUp {
+	0% {
+        opacity: 0;
+     }
+	100% {
+        opacity: 1;
+        -webkit-transform: translateY(50px);
+    }
+}
+
+@keyframes moveUp {
+	0% {
+        opacity: 0;
+    }
+	100% {
+        opacity: 1;
+        -webkit-transform: translateY(50px); transform: translateY(0);
+    }
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+    }
+}
+
+/**
+* GENERAL APP SCSS
+*/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color:#FFFFFF;
+  min-height: 100%;
+  background: #1976D2;
+
+  .router-container {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    padding-top: 100px;
+    -webkit-transform: translateY(200px);
+	transform: translateY(200px);
+	-webkit-animation: moveUp 0.65s ease forwards;
+	animation: moveUp 0.65s ease forwards;
+    background: url('../assets/super-hero-large.png') center bottom no-repeat #1976D2;
+
+    &.odd {
+          
+    }
+
+    &.even {
+    }
+
+    &.content {
+        [class^="col-md-"] a {
+           padding: 20px;
+           margin: 15px;
+           background: rgba(255, 255, 255, 0.1);
+           display: block;
+           @include transition(background, 0.3s);
+           text-decoration: none;
+
+           &:hover {
+               background: rgba(255, 255, 255, 0.3);
+           }
+        }
+    }
+
+    .container {
+        padding-top: 100px;
+        text-align: center;
+
+        .row {
+            margin-bottom: 60px;
+        }
+
+        a {
+            color: #FFF;
+            text-decoration: underline;
+            opacity: 1;
+            @include transition(opacity, 0.3s);
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        h4, h5 {
+            font-weight: 100;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 150px;
+
+            &.npm {
+                max-height: 100px;
+                margin-top: 25px;
+            }
+        }
+        
+    }
+  }
+  
+  nav {
+      width: 100%;
+      background: #FFFFFF;
+      box-shadow: 0 2px 5px 0 rgba(0 ,0, 0, 0.24);
+      line-height: 50px;
+      font-size: 16px;
+      font-weight: 100;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      text-transform: uppercase;
+
+      li {
+          display: inline-block;
+      }
+
+      a {
+          color: #1976D2;
+          background: rgba(0, 0, 0, 0);
+          @include transition(background, 0.3s);
+          padding: 0 15px;
+
+          &.active {
+              background: rgba(0, 0, 0, 0.05);
+          }
+      }
+  }
+}

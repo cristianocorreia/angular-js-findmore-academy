@@ -1,8 +1,6 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { routing } from './app.routing';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent }  from './app.component';
 import { SlideWelcomeComponent }  from './components/slide-welcome/slide-welcome.component';
 import { SlideBeforeWeStartComponent }  from './components/slide-before-we-start/slide-before-we-start.component';
 import { SlideTemplateCreationComponent }  from './components/slide-template-creation/slide-template-creation.component';
@@ -14,21 +12,47 @@ import { SlideDataValidationComponent }  from './components/slide-data-validatio
 import { SlideAsynchronousCallsComponent }  from './components/slide-asynchronous-calls/slide-asynchronous-calls.component';
 import { SlideFinalThoughtsComponent }  from './components/slide-final-thoughts/slide-final-thoughts.component';
 
-@NgModule({
-  imports:      [ BrowserModule, routing ],
-  declarations: [
-    AppComponent,
-    SlideWelcomeComponent,
-    SlideBeforeWeStartComponent,
-    SlideTemplateCreationComponent,
-    SlideModelManipulationComponent,
-    SlideBusinessLogicComponent,
-    SlideDetectingChangesComponent,
-    SlideFiltersComponent,
-    SlideDataValidationComponent,
-    SlideAsynchronousCallsComponent,
-    SlideFinalThoughtsComponent
-  ],
-  bootstrap:    [ AppComponent ],
-})
-export class AppModule {}
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: SlideWelcomeComponent
+  },
+  {
+    path: 'before-we-start',
+    component: SlideBeforeWeStartComponent
+  },
+  {
+    path: 'template-creation',
+    component: SlideTemplateCreationComponent
+  },
+  {
+    path: 'model-manipulation',
+    component: SlideModelManipulationComponent
+  },
+  {
+    path: 'business-logic',
+    component: SlideBusinessLogicComponent
+  },
+  {
+    path: 'detecting-changes',
+    component: SlideDetectingChangesComponent
+  },
+  {
+    path: 'filters',
+    component: SlideFiltersComponent
+  },
+  {
+    path: 'data-validation',
+    component: SlideDataValidationComponent
+  },
+  {
+    path: 'asynchronous-calls',
+    component: SlideAsynchronousCallsComponent
+  },
+  {
+    path: 'final-thoughts',
+    component: SlideFinalThoughtsComponent
+  }
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
+
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  moduleId: module.id,
+  selector: 'app-root',
+  templateUrl: 'app.template.html',
+  styleUrls: ['./app.style.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { }
