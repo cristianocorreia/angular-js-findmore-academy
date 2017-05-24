@@ -78,7 +78,6 @@ body {
   background: #1976D2;
 
   .router-container {
-    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -88,25 +87,14 @@ body {
   }
 
   .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    min-height: 100%;
     z-index: 0;
-    padding-top: 100px;
+    padding-top: 50px;
     -webkit-transform: translateY(200px);
 	transform: translateY(200px);
 	-webkit-animation: moveUp 0.65s ease forwards;
 	animation: moveUp 0.65s ease forwards;
     background: url('../assets/super-hero-large.png') center bottom no-repeat #1976D2;
-
-    &.odd {
-          
-    }
-
-    &.even {
-    }
 
     &.content {
         [class^="col-md-"] a {

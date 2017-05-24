@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing } from './app.routing';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent }  from './app.component';
 import { SlideWelcomeComponent }  from './components/slide-welcome/slide-welcome.component';
@@ -30,5 +31,6 @@ import { SlideFinalThoughtsComponent }  from './components/slide-final-thoughts/
     SlideFinalThoughtsComponent
   ],
   bootstrap:    [ AppComponent ],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
 })
 export class AppModule {}
