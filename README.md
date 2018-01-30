@@ -1,4 +1,4 @@
-# AngularjsFindmoreAcademy
+# Angularjs Findmore Academy - Training Presentation
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
 
